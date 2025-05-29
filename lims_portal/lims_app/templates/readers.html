@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% load static %}
+
+{% block main_content %}
+<div class="container-fluid text-center" style="padding: 10px 0;">
+  <div class="row" style="margin-bottom: 10px;">
+    <!-- Left Header -->
+    <div class="col-md-4 text-light" style="background: #4B088A;">
+      <h4 style="margin: 15px 0;">Register New Reader</h4>
+    </div>
+    <!-- Right Header -->
+    <div class="col-md-8">
+      <h4 style="margin: 15px 0;">Search Readers</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Left Form Panel -->
+    <div class="col-md-4" style="background-color: #CEECF5; min-height: 500px;">
+      <div class="p-3">
+        <form action="/readers/add" method="POST">
+          {% csrf_token %}
+          <table class="table" style="margin-top: 5px;">
+            <tr>
+              <td style="text-align: left;vertical-align: middle;padding-left: 15px;">Name : </td>
+              <td><input type="text" class="form-control" name="reader_name" required></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;vertical-align: middle;padding-left: 15px;">Contact : </td>
+              <td><input type="text" class="form-control" name="reader_contact" required></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;vertical-align: middle;padding-left: 15px;">Reference ID: </td>
+              <td><input type="text" class="form-control" name="reader_ref_id" required></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;vertical-align: middle;padding-left: 15px;">Address : </td>
+              <td><textarea class="form-control" name="address" required></textarea></td>
+            </tr>
+            <tr>
+              <td colspan="2"><button class="btn btn-primary" type="submit">Save</button></td>
+            </tr>
+          </table>
+        </form>
+        <ul style="text-align: left;vertical-align: middle;padding-left: 15px;">
+          <li><small>Readers must not register multiple times</small></li>
+          <li><small>Duplicate reader registrations will be deactivated</small></li>
+          <li><small>Contact information provided above must be correct and subject to verification</small></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="col-md-8">
+      <div class="text-end" style="margin-right:275px;">
+        <form class="d-inline-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 200px;" />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="row" style="margin-top: 20px;">
+        <p>{{readers|length}} readers subscribed.</p>
+      </div>
+      <div class="container" style="overflow-y:auto; height:400px;">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <td>Reader ID</td>
+              <td>Name</td>
+              <td>Contact</td>
+              <td>Reference ID</td>
+              <td>Address</td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in readers %}
+            <tr>
+              <td>{{ r.id }}</td>
+              <td>{{ r.reader_name }}</td>
+              <td>{{ r.reader_contact }}</td>
+              <td>{{ r.reference_id }}</td>
+              <td>{{ r.reader_address }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

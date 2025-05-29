@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% load static %}
+
+{% block main_content %}
+<main role="main">
+<div class="jumbotron">
+<div class="container d-flex align-items-center">
+    <img src="{% static 'LIMS_LOGO.png' %}" alt="LIMS Logo" height="150" class="me-4">
+    <div>
+    <h1 class="display-4">Hello, Readers!</h1>
+    <p>Welcome to City library. We have a large collection of books to cater the reading needs of all kind of readers</p>
+      <p><a role="button" href="#" class="btn btn-primary btn-lg">Browse our collection >></a></p>
+    </div>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Why Reading is important?</h2>
+      <p>Reading is important because it helps us learn, grow, and see the world in new ways. It improves focus, builds vocabulary, and sparks imagination. Whether for fun or study, reading helps us understand more and express ourselves better.</p>
+    </div>
+    <div class="col">
+      <h2>Key Benefits</h2>
+      <ul>
+  <li>Improves focus and concentration</li>
+  <li>Enhances vocabulary and language skills</li>
+  <li>Boosts imagination and creativity</li>
+  <li>Strengthens memory and cognitive function</li>
+  <li>Reduces stress and promotes relaxation</li>
+  <li>Builds knowledge and understanding</li>
+  <li>Improves communication and writing skills</li>
+</ul>
+    </div>
+    <div class="col">
+      <h2>Thought of the Day</h2>
+      <p>"A reader lives a thousand lives before he dies. The man who never reads lives only one."
+— George R.R. Martin</p>
+    </div>
+  </div>
+  <hr>
+</div>
+  </main>
+<footer class="container">
+  <p>@City Library 2025</p>
+</footer>
+  {% endblock %}
