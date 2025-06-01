@@ -1,0 +1,5 @@
+# Book Folder Notes
+
+- This folder contains PDFs or text files related to our library system.
+- On 2025-06-01, we added a placeholder book file for demonstration.
+- Next steps: consider adding real book metadata or descriptions here.
