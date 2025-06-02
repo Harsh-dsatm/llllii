@@ -10,6 +10,8 @@ from .models import *
 def home(request):
     return render(request, 'home.html', context={"current_tab": "home"})
 
+def home_redirect(request):
+    return redirect("/home")
 
 def readers_tab(request):
     readers = reader.objects.all()
