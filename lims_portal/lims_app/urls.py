@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from .views import *
 
 urlpatterns = [
+    path("", home_redirect, name="home_redirect"),
     path('home', home, name='home'),
     path('readers', readers_tab, name='readers'),
     path('readers/add', save_reader, name='add_reader'),
